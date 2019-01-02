@@ -17,6 +17,7 @@ for mode in modes:
     data_by_year = defaultdict(list)
     for row in reader:
         year = row['date'][0:4]
+        del row['est_jour_ferie']
         data_by_year[year].append(row)
 
     for year in data_by_year:
