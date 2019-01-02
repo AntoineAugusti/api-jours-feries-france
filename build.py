@@ -2,17 +2,22 @@ import csv
 import os
 import json
 from collections import defaultdict
+from urllib.request import urlopen
+from io import StringIO
+
+DATA_GOUV = 'https://www.data.gouv.fr/s/resources/jours-feries-en-france/'
 
 modes = [
-    ('data/', 'jours_feries_seuls.csv'),
-    ('data/alsace-moselle/', 'jours_feries_seuls_alsace_moselle.csv'),
+    ('data/', DATA_GOUV + '20180704-205342/jours_feries_seuls.csv'),
+    ('data/alsace-moselle/', DATA_GOUV + '20180705-154059/jours_feries_seuls_alsace_moselle.csv'),
 ]
 
 for mode in modes:
-    base_path, filename = mode
+    base_path, url = mode
     os.makedirs(base_path, exist_ok=True)
 
-    reader = csv.DictReader(open(filename))
+    response = urlopen(url).read().decode('utf-8')
+    reader = csv.DictReader(StringIO(response))
 
     data_by_year = defaultdict(list)
     for row in reader:
