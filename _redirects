@@ -1,2 +1,3 @@
+/ https://github.com/AntoineAugusti/api-jours-feries-france 301
 /api/alsace-moselle/:year /data/alsace-moselle/:year.json 200
 /api/:year /data/:year.json 200
