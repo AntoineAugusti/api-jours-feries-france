@@ -1,9 +1,10 @@
 import csv
-import os
 import json
+import os
 from collections import defaultdict
-from urllib.request import urlopen
+from datetime import datetime
 from io import StringIO
+from urllib.request import urlopen
 
 DATA_GOUV = 'https://www.data.gouv.fr/s/resources/jours-feries-en-france/'
 
@@ -21,11 +22,14 @@ for mode in modes:
 
     data_by_year = defaultdict(list)
     for row in reader:
-        year = row['date'][0:4]
+        year = int(row['date'][0:4])
         del row['est_jour_ferie']
         data_by_year[year].append(row)
 
+    if max(data_by_year.keys()) < datetime.today().year + 15:
+        raise ValueError('We should have bank holidays for 15 years')
+
     for year in data_by_year:
-        filename = base_path + year + '.json'
+        filename = base_path + str(year) + '.json'
         with open(filename, 'w') as f:
             json.dump(data_by_year[year], f, ensure_ascii=False)
