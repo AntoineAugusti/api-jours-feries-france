@@ -6,11 +6,11 @@ from datetime import datetime
 from io import StringIO
 from urllib.request import urlopen
 
-DATA_GOUV = 'https://www.data.gouv.fr/s/resources/jours-feries-en-france/'
+DATA_GOUV = 'https://www.data.gouv.fr/fr/datasets/r/'
 
 modes = [
-    ('data/', DATA_GOUV + '20180704-205342/jours_feries_seuls.csv'),
-    ('data/alsace-moselle/', DATA_GOUV + '20180705-154059/jours_feries_seuls_alsace_moselle.csv'),
+    ('data/', DATA_GOUV + 'cc620384-4ccf-41ae-a7ba-9eceacb7b6db'),
+    ('data/alsace-moselle/', DATA_GOUV + '944504ac-2592-4503-acd9-6befe8942ae2'),
 ]
 
 for mode in modes:
