@@ -1,4 +1,9 @@
 # API Jours Fériés France
+
+⚠️ **Ce projet n'est plus maintenu et le service web peut être arrêté à tout moment. Veuillez utiliser [l'API d'Etalab](https://github.com/etalab/jours-feries-france-api), fonctionnant de manière similaire.** ⚠️
+
+---
+
 Une API pour lister les jours fériés en France. Ceci se base sur les données [du package suivant](https://github.com/AntoineAugusti/jours-feries-france).
 
 ## Déploiement et hébergement
