@@ -29,8 +29,8 @@ for mode in modes:
         year = int(row["date"][0:4])
         data_by_year[year].append(row)
 
-    if max(data_by_year.keys()) < datetime.today().year + 10:
-        raise ValueError("We should have bank holidays for 10 years")
+    if max(data_by_year.keys()) < datetime.today().year + 5:
+        raise ValueError("We should have bank holidays for 5 years")
 
     for year in data_by_year:
         filename = base_path + str(year) + ".json"
