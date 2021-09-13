@@ -27,6 +27,7 @@ for mode in modes:
     data_by_year = defaultdict(list)
     for row in reader:
         year = int(row["date"][0:4])
+        row["annee"] = int(row["annee"])
         data_by_year[year].append(row)
 
     if max(data_by_year.keys()) < datetime.today().year + 5:
